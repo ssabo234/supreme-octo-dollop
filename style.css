@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
+
 body {
     background-color: #FFF;
     color: #000;
@@ -18,8 +22,8 @@ img {
 
 .header {
     background-color: #FFF;
-    height: 100px;
-    padding: 20px 40px;
+    height: 80px;
+    padding: 0 40px;
   }
   
 .header-inner {
@@ -48,38 +52,64 @@ img {
     position: relative;
     text-decoration: none;
     color: #333;
-    padding: 10px 0;
+    padding: 0;
     display: inline-block;
 }
 
-
-
-/* ナビゲーションリンク 
-.nav .menu > li > a {
-    position: relative;
-    text-decoration: none;
-    color: #333;
-    padding: 10px 0;
-    display: inline-block;
-  }
-
-/* ホバー時の下線アニメーション 
 .nav .menu > li > a::after {
     content: "";
     position: absolute;
-    left: 0;
-    bottom: 0;
+    left: 50%;
+    bottom: -6px;
     height: 2px;
-    width: 0;
-    background-color: #0067c0; /* 青色 
-    transition: width 0.3s;
-  }
-  
-  .nav .menu > li > a:hover::after {
     width: 100%;
+    background-color: #0067c0;
+    transform-origin: center;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.nav .menu > li > a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+}
+
+/* ▼ サブメニューの見た目と初期設定 */
+.submenu {
+    display: none;                         /* 最初は表示しない */
+    position: absolute;                   /* 親メニューからの相対位置で配置 */
+    top: 100%;                            /* 親の下にぴったりくっつける（100%＝親の高さ） */
+    left: 0%;                              /* 左端を揃える */
+    background-color: #fff;               /* 背景を白に */
+    padding: 0;                      /* 上下に10pxの余白 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* うっすら影をつけて浮かせ感を出す */
+    z-index: 1000;                        /* 前面に出す（重なり順） */
+    min-width: 150px;                     /* 横幅の最低サイズ */
+    list-style: none;                     /* ul/liのポチ（●）を消す */
   }
 
-  */
+/* ▼ サブメニュー内のリンクの見た目 */
+.submenu li a {
+    display: block;                       /* リンク全体をクリック可能に（ブロック化） */
+    padding: 10px 20px;                   /* 上下10px・左右20pxの余白 */
+    color: #333;                          /* テキストカラーをダークグレーに */
+    text-decoration: none;               /* 下線を消す */
+  }
+  
+  /* ▼ サブメニューのリンクにホバーしたときの色変化 */
+  .submenu li a:hover {
+    background-color: #f0f0f0;           /* ホバー時の背景色を薄いグレーに */
+  }
+  
+  /* ▼ 親メニューにホバーしたときにサブメニューを表示 */
+  .menu > li {
+    position: relative;                  /* 絶対配置する子（submenu）の基準点にする */
+  }
+  
+  .menu > li:hover .submenu {
+    display: block;                      /* ホバー中だけsubmenuを表示する！ */
+  }
+
+
 
 body main {
     height: 500px;
