@@ -1,29 +1,88 @@
-nav{
-    text-align: center;
-    }
-    nav ul{
-    margin: 0 ;
-    padding: 0 ;
-    }
-    nav ul li{
+@charset "UTF-8";
+
+body {
+    background-color: #FFF;
+    color: #000;
+    font-size:100%;
+}
+
+a {
+    color: #000;
+    font-size:100%;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.header {
+    background-color: #FFF;
+    height: 100px;
+    padding: 20px 40px;
+  }
+  
+.header-inner {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.logo {
+    width: 180px;
+    display: flex;
+}
+
+.nav .menu {
+    display: flex;
+    gap:30px;
     list-style: none;
-    display: inline-block;
-    width: 18%;
-    min-width: 90px;
-    }
-    nav ul li a{
+    margin:0;
+    padding:0;
+    position: relative;
+}
+
+.nav .menu > li > a {
+    position: relative;
     text-decoration: none;
     color: #333;
-    }
-    nav ul li.current a{
-    color: #F33135;
-    }
-    nav ul li a:hover{
-    color: #E7DA66;
-    }
+    padding: 10px 0;
+    display: inline-block;
+}
+
+
+
+/* ナビゲーションリンク 
+.nav .menu > li > a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    padding: 10px 0;
+    display: inline-block;
+  }
+
+/* ホバー時の下線アニメーション 
+.nav .menu > li > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 0;
+    background-color: #0067c0; /* 青色 
+    transition: width 0.3s;
+  }
+  
+  .nav .menu > li > a:hover::after {
+    width: 100%;
+  }
+
+  */
 
 body main {
-    height: 400px;
+    height: 500px;
     background-image: url("main.png");
     background-size: cover;
       }
@@ -32,3 +91,6 @@ body footer {
     height: 50px;
     background-color: #333;
 }
+
+
+
